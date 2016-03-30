@@ -1,0 +1,158 @@
+<div class="col-md-12 container-one-candidate container-one-region-candidate" ng-controller="MapcongresistasSeleccionaCongresistaCtrl">
+    <div id="zone-candidate-js" class="zone-candidate profile-element">
+        <div class="cont-photo keyboard-row block-left-prof"
+             style="background-image:url({{mapCongresistaSC.data.photo|urlMoment}})">
+            <div class="keyboard-parent">
+                <div class="item-keyboard-v2 elementSelectDefaultInit" ng-click="btnBackViews()">
+                    <img src="assets/images/back.png"
+                         class="btn-bl-back btn-bl-back-normal"
+                         alt="logo"/>
+                    <img src="assets/images/back-hover.png"
+                         class="btn-bl-back btn-bl-back-hover"
+                         alt="logo"/>
+                </div>
+            </div>
+
+            <!--<div class="cont-videos-orc">-->
+                <!--<div class="video-orc keyboard-parent">-->
+                    <!--<div class="item-keyboard-v2">-->
+                        <!--<img src="assets/images/play-normal.png" class="btn-video-orc-normal"/>-->
+                        <!--<img src="assets/images/play-hover.png" class="btn-video-orc-hover"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<div class="video-orc keyboard-parent">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="item-keyboard-v2">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img src="assets/images/play-normal.png" class="btn-video-orc-normal"/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img src="assets/images/play-hover.png" class="btn-video-orc-hover"/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+        </div>
+
+        <div class="cont-info-candidate block-right-prof">
+            <div class="block-one-ic block-prof-head">
+                <div class="name-candidate">
+                    <p>{{mapCongresistaSC.data.first_name}}</p>
+                    <p>{{mapCongresistaSC.data.last_name}}</p>
+                </div>
+                <div class="cont-logo">
+                    <p>Candidato al congreso por :</p>
+                    <p>{{mapCongresistaSC.data.political_party_name}}</p>
+                    <div class="cont-number-head cont-number-candidate">
+                        {{mapCongresistaSC.data.number}}
+                    </div>
+                    <img ng-src="{{mapCongresistaSC.data.political_party_logo}}" alt="logo"/>
+                </div>
+            </div>
+            <!--<div class="block-two-ic block-prof-description">-->
+                <!--Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Nullam cursus lacinia erat. Fusce ac felis sit amet ligula pharetra condimentum. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.-->
+                <!--Nulla sit amet est. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Vestibulum dapibus nunc ac augue. Fusce fermentum. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.-->
+                <!--Aliquam lobortis.-->
+            <!--</div>-->
+            <div class="block-three-ic block-prof-data block-prof-data-candidate">
+                <ul>
+                    <li class="age-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/edad.png" alt="Edad"/> Edad
+                        </div>
+                        <span class="bpd-info">{{mapCongresistaSC.data.age}} años</span>
+                    </li>
+                    <li class="site-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/lugar.png" alt="Edad"/> <p>Lugar de Nacimiento</p>
+                        </div>
+                        <span class="bpd-info">{{mapCongresistaSC.data.birthplace}}</span>
+                    </li>
+                    <li class="bm-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/muebles.png" alt="Edad"/> <p>Bienes muebles</p>
+                        </div>
+                        <span class="bpd-info"><span ng-show="mapCongresistaSC.data.movable">SI</span>
+                                               <span ng-hide="mapCongresistaSC.data.movable">NO</span></span>
+                    </li>
+                    <li class="bi-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/inmuebles.png" alt="Edad"/> <p>Bienes inmuebles</p>
+                        </div>
+                        <span class="bpd-info"><span ng-show="mapCongresistaSC.data.inmovable">SI</span>
+                                               <span ng-hide="mapCongresistaSC.data.inmovable">NO</span></span>
+                    </li>
+                    <!--<li>-->
+                        <!--<div class="label-img-text">-->
+                            <!--<img src="assets/images/laboral.png" alt="Edad"/> <p>Experiencia laboral</p>-->
+                        <!--</div>-->
+                        <!--<span class="bpd-info">{{mapCongresistaSC.data.work_experience}} años</span>-->
+                    <!--</li>-->
+
+                </ul>
+                <ul>
+                    <li class="i-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/ingresos.png" alt="Edad"/> <p>Ingresos (S/.)</p>
+                        </div>
+                        <span class="bpd-info">{{mapCongresistaSC.data.income}}</span>
+                    </li>
+                    <li class="cp-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/cargos-part.png" alt="Edad"/> <p>Cargos Partidarios</p>
+                        </div>
+                        <span class="bpd-info"><span ng-show="mapCongresistaSC.data.party_positions">SI</span>
+                                               <span ng-hide="mapCongresistaSC.data.party_positions">NO</span> </span>
+                    </li>
+                    <li class="cep-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/cargos-pop.png" alt="Edad"/> <p>Cargos por elección popular</p>
+                        </div>
+                        <span class="bpd-info"><span ng-show="mapCongresistaSC.data.popular_election_charges">SI</span>
+                                               <span ng-hide="mapCongresistaSC.data.popular_election_charges">NO</span></span>
+                    </li>
+                </ul>
+                <!--<ul>-->
+                    <!--<li class="mw100">-->
+                        <!--<div class="label-img-text">-->
+                            <!--<img src="assets/images/reeleccion.png" alt="Edad"/> POSTULA A LA REELECCIÖN :-->
+                            <!--<span class="bpd-info" ng-show="mapCongresistaSC.data.reelection">SI</span>-->
+                            <!--<span class="bpd-info" ng-hide="mapCongresistaSC.data.reelection">NO</span>-->
+                        <!--</div>-->
+
+                    <!--</li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+    </div>
+
+    <div id="zone-menu-candidate-js" class="zone-menu-candidate">
+        <ul class="keyboard-row nav-candidate nav-general-app nav-general-profile-app">
+            <li class="item-nc item-nc-logo nav-general-item nav-general-item-logo">
+                <img src="assets/images/logo.png"
+                     class="item-nc-logo-popup"
+                     alt="logo"/>
+                <div class="cont-name-logo">
+                    <div class="cont-name">
+                        <p>{{mapCongresistaSC.data.first_name}}</p>
+                        <p>{{mapCongresistaSC.data.last_name}}</p>
+                    </div>
+                    <img ng-src="{{mapCongresistaSC.data.political_party_logo}}" alt="logo"/>
+                </div>
+            </li>
+        <!--<li class="keyboard-parent item-nc nav-general-item">-->
+            <!--<div class="item-keyboard-v2 nav-general-item-select">-->
+                <!--Partido-->
+            <!--</div>-->
+        <!--</li><li class="keyboard-parent item-nc nav-general-item">-->
+            <!--<div class="item-keyboard-v2 nav-general-item-select">-->
+                <!--Debates-->
+            <!--</div>-->
+        <!--</li><li class="keyboard-parent item-nc nav-general-item">-->
+            <!--<div class="item-keyboard-v2 nav-general-item-select">-->
+                <!--Plan de gobierno-->
+            <!--</div>-->
+        <!--</li><li class="keyboard-parent item-nc nav-general-item">-->
+            <!--<div class="item-keyboard-v2 nav-general-item-select">-->
+                <!--Congresistas-->
+            <!--</div>-->
+        <!--</li>-->
+        </ul>
+    </div>
+
+</div>

@@ -1,0 +1,111 @@
+<div id="zone-region-congresistas" class="col-md-12 container-region-congresistas"
+     ng-controller="MapcongresistasEspecificaRegionCtrl">
+    <div id="zone-nav-general-js">
+        <div class="cont-head-rc keyboard-row"
+             ng-style="{'background-image':'url('+partMapCER.data.image+')'}">
+            <div class="keyboard-parent cont-btn-back cont-btn-back-congress">
+                <div class="item-keyboard-v2" ng-click="btnBackViews()">
+                    <img src="assets/images/back.png"
+                         class="btn-bl-back btn-bl-back-normal"
+                         alt="logo"/>
+                    <img src="assets/images/back-hover.png"
+                         class="btn-bl-back btn-bl-back-hover"
+                         alt="logo"/>
+                </div>
+            </div>
+            <div class="cont-text-head-rc">
+                <p>Región</p>
+
+                <p class="name-region">{{partMapCER.data.name}}</p>
+            </div>
+            <ul class="cont-tags-rg keyboard-row">
+                <li class="tags-rg tags-rg-all keyboard-parent" >
+                    <div class="item-keyboard-v2"
+                         ng-class="{'tags-rg-active':partMapCER.visibleM.all}"
+                         ng-click="partMapCER.setVisible('all')">
+                        Todos
+                    </div>
+                </li>
+                <li class="tags-rg tags-rg-man" >
+                    <div class="item-keyboard-v2"
+                         ng-class="{'tags-rg-active':partMapCER.visibleM.mens}"
+                         ng-click="partMapCER.setVisible('mens')">
+                        Hombres
+                    </div>
+                </li>
+                <li class="tags-rg tags-rg-woman" >
+                    <div class="item-keyboard-v2"
+                         ng-class="{'tags-rg-active':partMapCER.visibleM.womans}"
+                         ng-click="partMapCER.setVisible('womans')">
+                        Mujeres
+                    </div>
+                </li>
+                <li class="tags-rg tags-rg-young" >
+                    <div class="item-keyboard-v2"
+                         ng-class="{'tags-rg-active':partMapCER.visibleM.youngs}"
+                         ng-click="partMapCER.setVisible('youngs')">
+                        Jóvenes
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="cont-lists-partido-0" id="zona2">
+        <div class="cont-lists-partido cont-lists-partido-js" id="cont-lists-partido-js">
+            <!-- -->
+            <ul id="cont-list-partidos-js"
+                class="cont-list-partidos"
+                ng-repeat="partie in partMapCER.data.political_parties track by $index"
+                ng-init="parentIndex=$index">
+                <li class="keyboard-row list-members-partido-row item-list-partido">
+                    <img ng-src="{{partie.logo}}"
+                         alt="Logo del partido" class="logo-patido-rc"/>
+                    <div class="cont-arrow-mapCER cont-arrow-left">
+                        <img src="assets/images/arrow-left.png"
+                             class="arrow-left-mapCER"
+                             alt="flecha"/>
+                    </div>
+                    <div class="cont-arrow-mapCER cont-arrow-right">
+                        <img src="assets/images/arrow-right.png"
+                             class="arrow-right-mapCER"
+                             alt="flecha"/>
+                    </div>
+                    <div class="cont-list-members-partido">
+
+                        <!--ng-if=" partMapCER.visibleM.all  ||-->
+                        <!--(congressmen.gender=='F' && partMapCER.visibleM.womans) ||-->
+                        <!--(congressmen.gender=='M' && partMapCER.visibleM.mens)   ||-->
+                        <!--(congressmen.young       && partMapCER.visibleM.youngs)"-->
+
+                        <ul class="list-members-partido"
+                            ng-style="{'width':partie.congressmen.length*270+'px'}">
+                            <li ng-repeat="congressmen in partie.congressmen track by $index"
+                                ng-init="($last && parentIndex==(partMapCER.data.political_parties.length-1))?partMapCER.slider():null;
+                                         $last?partMapCER.setElemensRows(parentIndex,partie.congressmen.length):null;"
+                                class="keyboard-parent">
+                                <div class="item-keyboard-v2 item-members"
+                                     ng-class="{'last-item-row-grid' :$last,
+                                                'elementSelectDefaultInit':$first && parentIndex==0,
+                                                'first-item-row-grid':($first && parentIndex!=0)}"
+                                     ng-click="transit('mapCongresistas_selecciona_congresista',{idRegion:partMapCER.data.id,idCongresista:congressmen.id})">
+                                    <img ng-src="{{congressmen.photo|urlMoment}}"
+                                         class="photo-member-rc" alt="postulante al congreso"/>
+                                    <!--<img ng-src="assets/images/foto-candidato.png"-->
+                                         <!--class="photo-member-rc" alt="postulante al congreso"/>-->
+
+                                    <div class="cont-number-member">{{congressmen.number}}</div>
+                                    <div class="name-member-rc">
+                                        {{congressmen.first_name}}
+                                        <span>{{congressmen.last_name}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>

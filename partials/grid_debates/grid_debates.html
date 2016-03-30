@@ -1,0 +1,140 @@
+<div class="col-md-12" ng-controller="GridDebatesCtrl">
+
+    <div id="zone-grid-debates-js" class="zone-grid-debates-jne">
+        <div class="grid-elements-cont grid-debates-jne">
+            <p class="message-void-debates"> Debate JNE estará disponible a partir del 3 de abril </p>
+            <ul ng-show="gridDebates.showVideos"
+                class="grid-parent grid-parent-js"
+                id="grid-parent-js">
+                <li ng-repeat="partie in gridDebates.data track by $index"
+                    class="grid-row keyboard-row"
+                    ng-init="parentIndex=$index">
+                    <p class="gr-theme">{{partie.name}}</p>
+                    <div class="item-arrow item-arrow-left">
+                        <div class="item-arrow-left-select">
+                            <img src="assets/images/arrow-left.png" alt="left"/>
+                        </div>
+                    </div>
+                    <div class="item-arrow item-arrow-right">
+                        <div class="item-arrow-right-select" >
+                            <img src="assets/images/arrow-right.png" alt="left"/>
+                        </div>
+                    </div>
+                    <div class="grid-list-viewport">
+                        <ul class="grid-list">
+                            <li ng-repeat="congressmen in partie.political_parties|favoritesX track by $index"
+                                ng-init="($last && parentIndex==gridDebates.data.length-1)?gridDebates.slider():null;
+                                          $last ?gridDebates.countElement(parentIndex,partie.political_parties.length):null;"
+                                class="gl-item  keyboard-parent">
+                                <div class="gl-item-selectable item-keyboard-v2"
+                                     ng-style="{'background-image':'url('+congressmen.videos.image+')'}"
+                                     ng-click="transit('playerjne',{idvideo:congressmen.videos.id,url:gridDebates.fromText})"
+                                     ng-class="{'last-item-row-grid' :$last,
+                                                'elementSelectDefaultInit':parentIndex==0 && $first}">
+                                    <img ng-src="{{congressmen.logo}}" class="logo-partie">
+                                    <img src="assets/images/play-normal.png"
+                                         class="btn-play btn-play-normal"
+                                         alt="logo"/>
+                                    <img src="assets/images/play-hover.png" class="btn-play btn-play-hover" alt="logo"/>
+                                </div>
+                                <div class="data-video">
+                                    <p class="description-video">{{congressmen.videos.description}} {{congressmen.contElement}}</p>
+                                    <p class="duration-video">Duración : {{congressmen.videos.duration}} min.</p>
+                                </div>
+                            </li>
+                            <!--<li-->
+                                <!--class="gl-item  keyboard-parent">-->
+                                <!--<div class="gl-item-selectable item-keyboard-v2"-->
+                                     <!--&gt;-->
+                                    <!--<img ng-src="{{congressmen.logo}}" class="logo-partie">-->
+                                    <!--<img src="assets/images/play-normal.png"-->
+                                         <!--class="btn-play btn-play-normal"-->
+                                         <!--alt="logo"/>-->
+                                    <!--<img src="assets/images/play-hover.png" class="btn-play btn-play-hover" alt="logo"/>-->
+                                <!--</div>-->
+                                <!--<div class="data-video">-->
+                                    <!--<p class="description-video">{{congressmen.videos.description}}</p>-->
+                                    <!--<p class="duration-video">Duración : {{congressmen.videos.duration}} min.</p>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li-->
+                                <!--class="gl-item  keyboard-parent">-->
+                                <!--<div class="gl-item-selectable item-keyboard-v2"-->
+                                     <!--&gt;-->
+                                    <!--<img ng-src="{{congressmen.logo}}" class="logo-partie">-->
+                                    <!--<img src="assets/images/play-normal.png"-->
+                                         <!--class="btn-play btn-play-normal"-->
+                                         <!--alt="logo"/>-->
+                                    <!--<img src="assets/images/play-hover.png" class="btn-play btn-play-hover" alt="logo"/>-->
+                                <!--</div>-->
+                                <!--<div class="data-video">-->
+                                    <!--<p class="description-video">{{congressmen.videos.description}}</p>-->
+                                    <!--<p class="duration-video">Duración : {{congressmen.videos.duration}} min.</p>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <img src="assets/images/shadow-debatejne.png" class="shadows-grid"/>
+        </div>
+    </div>
+
+    <div id="zone-menu-js" class="zone-menu-debates-jne">
+        <ul class="keyboard-row nav-general-app ">
+            <li class="item-nc item-nc-logo nav-general-item">
+                <img src="assets/images/logo.png"
+                     class="item-nc-logo-popup"
+                     alt="logo"/>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select tab-candidate"
+                     ng-class="{'active-tab-item':tab.current==1}"
+                     ng-click="transit('home')">
+                    <img src="assets/images/candidatos-menu.png" class="img-hover"/>
+                    ¡Conoce a tu candidato!
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==4}"
+                     ng-click="transit('planes')">
+                    <img src="assets/images/planes-menu.png" class="img-hover" alt=""/>
+                    Planes
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==5}"
+                     ng-click="transit('mapCongresistas')">
+                    <img src="assets/images/congresistas-menu.png" class="img-hover" alt=""/>
+                    Congresistas
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==2}"
+                     ng-click="transit('debates')">
+                    <!--ng-click="transit('partidos')"-->
+                    <img src="assets/images/foros-menu.png" class="img-hover" alt=""/>
+                    Foros y Debates
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2  nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==3}"
+                     ng-click="transit('grid_debates',{'from':1})">
+                    <img src="assets/images/debates-menu.png" class="img-hover" alt=""/>
+                    Debates JNE
+                </div>
+            </li>
+
+            <li class="item-nc item-nc-logo item-nc-logo-favorites nav-general-item">
+                <div class="item-keyboard-v2"
+                     ng-click="openModalFavoriteGeneral('.item-nc-logo')">
+                    <img src="assets/images/favourites.png" class="item-nc-logo-tv" alt="logo"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

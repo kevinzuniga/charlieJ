@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="jne">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <!--<base href="/"/>-->
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <title>JNE</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="vendor/gray/css/gray.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link rel="stylesheet" href="vendor/flowplayer/css/minimalist.css"/>
+    <link rel="stylesheet" href="vendor/flowplayer/css/player.css"/>
+    <!-- build:css styles/app.css -->
+    <link rel="stylesheet" type="text/css" href="tmp/app.css"/>
+    <!-- endbuild -->
+    <!--<script src="http://jsconsole.com/remote.js?jneRemote"></script>-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75292100-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+
+
+<div>
+    <div id="content" class="container">
+        <div class="row">
+            <div ui-view></div>
+            <div ng-show="playerif"
+                 ng-class="{'is-splash':playerif}"
+                 id="player-video" class="flowplayer is-ready" data-key="$459791815211752"></div>
+        </div>
+    </div>
+</div>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="vendor/jquery/dist/jquery.js"></script>
+<script src="vendor/underscore/underscore.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="vendor/angular-animate/angular-animate.js"></script>
+<script src="vendor/angular-resource/angular-resource.js"></script>
+<script src="vendor/angular-cookies/angular-cookies.js"></script>
+<script src="vendor/angular-mocks/angular-mocks.js"></script>
+<script src="vendor/angular-ui-utils/ui-utils.js"></script>
+<script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="vendor/moment/moment.js"></script>
+<script src="vendor/lodash/lodash.js"></script>
+<script src="vendor/restangular/dist/restangular.js"></script>
+<script src="vendor/gray/js/jquery.gray.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<script src="vendor/gtv.jquery/gtvcore.js"></script>
+<script src="vendor/gtv.jquery/keycontrol.js"></script>
+<script src="vendor/flowplayer/flowplayer.js"></script>
+<!-- build:js scripts/app.js -->
+<!-- Main App JS -->
+<script src="app.js"></script>
+<script src="tmp/templates.js"></script>
+<script src="partials/home/home.js"></script>
+<script src="services/gtvzone/gtvzone.js"></script>
+<script src="partials/candidato/candidato.js"></script>
+<script src="partials/partidos/partidos.js"></script>
+<script src="partials/mapCongresistas/mapCongresistas.js"></script>
+<script src="partials/planes/planes.js"></script>
+<script src="partials/debates/debates.js"></script>
+<script src="partials/partidos_profile/partidos_profile.js"></script>
+<script src="partials/mapCongresistas_especifica_region/mapCongresistas_especifica_region.js"></script>
+<script src="partials/mapCongresistas_selecciona_congresista/mapCongresistas_selecciona_congresista.js"></script>
+<script src="partials/playerjne/playerjne.js"></script>
+<script src="modals/favorites/favorites.js"></script>
+<script src="partials/grid_debates/grid_debates.js"></script>
+<script src="services/sliderFactory/sliderFactory.js"></script>
+<script src="services/localStorage/localstorage.js"></script>
+<script src="services/api/api.js"></script>
+<script src="filter/favoritesX/favoritesX.js"></script>
+<!-- Add New Component JS Above -->
+
+<!-- endbuild -->
+
+
+</body>
+</html>

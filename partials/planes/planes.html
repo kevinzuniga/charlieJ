@@ -1,0 +1,96 @@
+<div class="col-md-12 container-debates" ng-controller="PlanesCtrl">
+    <div id="zone-planes-js" class="zone-debates cont-slider-50">
+        <!--<ul class="tags-planes keyboard-row">-->
+            <!--<li class="keyboard-parent">-->
+                <!--<div class="item-keyboard-v2 style-text">Partidos</div>-->
+            <!--</li>-->
+            <!--<li class="keyboard-parent">-->
+                <!--<div class="item-keyboard-v2 style-text">Temas</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <ul class="keyboard-row list-height-50 list-planes" id="list-planes-id">
+            <li class="item-arrow item-arrow-left">
+                <div class="item-arrow-left-select">
+                    <img src="assets/images/arrow-left.png" alt="left"/>
+                </div>
+            </li>
+            <li class="item-arrow item-arrow-right">
+                <div class="item-arrow-right-select" >
+                    <img src="assets/images/arrow-right.png" alt="left"/>
+                </div>
+            </li>
+            <li class="keyboard-parent item-height-50 list-item-planes"
+                ng-repeat="plan in partPlanes.data track by $index"
+                ng-init="$last?partPlanes.slider():null">
+                <div class="item-keyboard-v2 item-height-50-select"
+                     ng-click="transit('playerjne',{idvideo:plan.id,url:'government-planes'});"
+                     ng-class="{'elementSelectSlider':(actualSlider)==$index,'elementSelectDefaultInit':$first}"
+                     ng-style="{'background-image':'url('+plan.presidentialcandidate_photo_medium+')'}">
+                    <div class="effect-grayscale"></div>
+                    <p class="style-text">
+                        {{plan.name}}
+                    </p>
+                </div>
+                <img ng-src="{{plan.logo}}" class="logo-partie-plans" alt="logo partido"/>
+            </li>
+        </ul>
+    </div>
+
+    <div id="zone-nav-general-js">
+        <ul class="keyboard-row nav-general-app nav-map-planes">
+            <li class="item-nc item-nc-logo nav-general-item">
+                <img src="assets/images/logo.png"
+                     class="item-nc-logo-popup"
+                     alt="logo"/>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==1}"
+                     ng-click="transit('home')">
+                    <img src="assets/images/candidatos-menu.png" class="img-hover"/>
+                    ¡Conoce a tu candidato!
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==4}"
+                     ng-click="transit('planes')">
+                    <img src="assets/images/planes-menu.png" class="img-hover"/>
+                    Planes
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==5}"
+                     ng-click="transit('mapCongresistas')">
+                    <img src="assets/images/congresistas-menu.png" class="img-hover"/>
+                    Congresistas
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==2}"
+                     ng-click="transit('debates')">
+                    <!--ng-click="transit('partidos')"-->
+                    <img src="assets/images/foros-menu.png" class="img-hover"/>
+                    Foros y Debates
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==3}"
+                     ng-click="transit('grid_debates',{'from':1})">
+                    <img src="assets/images/debates-menu.png" class="img-hover"/>
+                    Debates JNE
+                </div>
+            </li>
+
+            <li class="item-nc item-nc-logo item-nc-logo-favorites nav-general-item">
+                <div class="item-keyboard-v2"
+                     ng-click="openModalFavoriteGeneral('.item-nc-logo',partPlanes.data)">
+                    <img src="assets/images/favourites.png" class="item-nc-logo-tv" alt="logo"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

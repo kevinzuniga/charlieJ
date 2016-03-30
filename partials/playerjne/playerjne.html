@@ -1,0 +1,86 @@
+<div class="col-md-12" ng-controller="PlayerjneCtrl" id="conten-generic">
+    <div class="box-video-player" id="player-container-all">
+        <div class="keyboard-row btn-back-player" ng-show="hidenBtns">
+           <div class="keyboard-parent">
+               <div class="item-keyboard-v2 elementSelectDefaultInit" ng-click="Player.btnBack()">
+                   <img src="assets/images/back.png"
+                        class="btn-back btn-back-normal"
+                        alt="logo"/>
+                   <img src="assets/images/back-hover.png"
+                        class="btn-bl-back btn-back-hover"
+                        alt="logo"/>
+               </div>
+           </div>
+        </div>
+
+        <div class="cont-nav-down-playerJNE" ng-show="hidenBtns">
+            <div class="cont-controls-player-jne keyboard-row">
+                <img src="assets/images/logo.png" class="player-logo" alt="logo"/>
+                <div class="play-btn keyboard-parent">
+                    <div class="play-btn-key  item-keyboard-v2" ng-click="flowpl.btnPlayPause()">
+                        <span class="glyphicon glyphicon-play" ng-show="flowpl.playPause" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-pause" ng-hide="flowpl.playPause" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="name-video">
+                    <span class="text-name">{{Player.video.tittle}}</span>
+                    <div class="time-progress">
+                        <span ng-if="timeProgress.hours!=undefined" ng-show="duration.hours>0">{{timeProgress.hours}}:</span><span ng-show="timeProgress.minutes==undefined">0</span><span ng-show="duration.hours>0 && timeProgress.minutes<10 ">0</span>{{timeProgress.minutes}}:<span ng-show="timeProgress.seconds==undefined">00</span><span ng-show="timeProgress.seconds<10">0</span>{{timeProgress.seconds}}
+                        - <span ng-if="duration.hours!=undefined" ng-show="duration.hours>0">{{duration.hours}}:</span><span ng-show="duration.minutes==undefined">0</span><span ng-show="duration.hours>0 && duration.minutes<10 ">0</span>{{duration.minutes}}:<span ng-show="duration.seconds==undefined">00</span><span ng-show="duration.seconds<10">0</span>{{duration.seconds}}
+                    </div>
+                    <div class="cont-progress"> <div class="icon-progress" id="icon-progress-id"></div></div>
+                </div>
+                <div class="q-menu keyboard-parent">
+                    <span class="item-keyboard-v2" ng-click="Player.btnMenu()">
+                        Q.MENU
+                    </span>
+                </div>
+                <div class="list-videos keyboard-parent">
+                    <div class="item-keyboard-v2"
+                         ng-show="Player.showRelationed"
+                         ng-click="showPlaylist=!showPlaylist">
+                        <span class="glyphicon  glyphicon-align-justify" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="cont-videos-player"
+                 ng-init="showPlaylist=true"
+                 ng-show="showPlaylist">
+                <ul class="keyboard-row"
+                    id="list-videos-id"
+                    ng-style="{'width':Player.related_videos_pp.length*153}">
+                    <li class="keyboard-parent"
+                        ng-repeat="video in Player.related_videos_pp track by $index"
+                        ng-init="$last?Player.initSlider():null">
+                        <div class="item-video-p item-keyboard-v2"
+                             ng-style="{'background-image':'url('+video.image+')'}"
+                             ng-click="Player.loadVideoNormal(video)">
+                            <img src="assets/images/play-normal.png" class="btn-play btn-play-normal" alt="play"/>
+                            <img src="assets/images/play-hover.png" class="btn-play btn-play-hover" alt="play"/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .flowplayer {
+        background-color: #eee;
+    }
+    /* replacement notification - can be omitted */
+    .flowplayer .replacement {
+        position: absolute;
+        top: 50px;
+        left: 5px;
+        padding: 4px;
+        background: #fff;
+        color: #900;
+        font-weight: bold;
+        z-index: 1;
+        display: none;
+    }
+    .flowplayer.is-ready .replacement {
+        display: block;
+    }
+</style>

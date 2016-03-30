@@ -1,0 +1,100 @@
+<div class="col-md-12 cont-zone-regiones" ng-controller="MapcongresistasCtrl">
+    <div class="back-congress"></div>
+    <div id="zone-regiones-js" class="zone-regiones"
+         ng-style="{'background-position-x':mapCongresista.coorde.x+'px',
+                    'background-position-y':mapCongresista.coorde.y+'px'}">
+
+        <ul class="keyboard-row block-regiones block-1-regiones">
+            <li class="keyboard-parent"
+                ng-repeat="region in mapCongresista.regionsTemp track by $index"
+                ng-if="$index<12">
+                <div class="item-keyboard-v2 item-keyboard-region"
+                     ng-class="{'elementSelectDefaultInit':$first}"
+                     data-index="{{$index}}"
+                     ng-mouseenter="mapCongresista.focusRegion(region.map)"
+                     ng-click="transit('mapCongresistas_especifica_region',{idRegion:region.id})">
+                    <!--247px -112px;-->
+                    {{region.name}}
+                </div>
+            </li>
+        </ul>
+
+        <ul class="keyboard-row block-regiones block-2-regiones">
+            <li class="keyboard-parent"
+                ng-repeat="region in mapCongresista.regionsTemp track by $index"
+                ng-init="$last?mapCongresista.ready():null"
+                ng-if="$index>=12">
+                <div class="item-keyboard-v2 item-keyboard-region"
+                     data-index="{{$index}}"
+                     ng-mouseenter="mapCongresista.focusRegion(region.map)"
+                     ng-click="transit('mapCongresistas_especifica_region',{idRegion:region.id})">
+                    <!--247px -112px;-->
+                    {{region.name}}
+                </div>
+            </li>
+        </ul>
+        <div class="container-hover-regions"
+             ng-style="{'background-image':'url('+mapCongresista.hoverUrl+')'}">
+        </div>
+        <div class="loading-map-regions"
+             ng-show="mapCongresista.imgLoadeds<24">
+            cargando {{(mapCongresista.imgLoadeds/24)*100|number:0}}%
+        </div>
+    </div>
+    <div id="zone-nav-general-js" class="nav-map-congresistas">
+        <ul class="keyboard-row nav-general-app">
+            <li class="item-nc item-nc-logo nav-general-item">
+                <img src="assets/images/logo.png"
+                     class="item-nc-logo-popup"
+                     alt="logo"/>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==1}"
+                     ng-click="transit('home')">
+                    <img src="assets/images/candidatos-menu.png" class="img-hover"/>
+                    ¡Conoce a tu candidato!
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==4}"
+                     ng-click="transit('planes')">
+                    <img src="assets/images/planes-menu.png" class="img-hover"/>
+                    Planes
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==5}"
+                     ng-click="transit('mapCongresistas')">
+                    <img src="assets/images/congresistas-menu.png" class="img-hover"/>
+                    Congresistas
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==2}"
+                     ng-click="transit('debates')">
+                    <!--ng-click="transit('partidos')"-->
+                    <img src="assets/images/foros-menu.png" class="img-hover"/>
+                    Foros y Debates
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==3}"
+                     ng-click="transit('grid_debates',{'from':1})">
+                    <img src="assets/images/debates-menu.png" class="img-hover"/>
+                    Debates JNE
+                </div>
+            </li>
+            <li class="item-nc item-nc-logo item-nc-logo-favorites nav-general-item">
+                <div class="item-keyboard-v2"
+                     ng-click="openModalFavoriteGeneral('.item-nc-logo')">
+                    <img src="assets/images/favourites.png" class="item-nc-logo-tv" alt="logo"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="col-md-12 container-partidos" ng-controller="PartidosCtrl">
+    <div id="zone-partidos-js" class="zone-partidos cont-slider-full">
+        <ul class="keyboard-row list-partidos list-height-full" id="list-partidos-id">
+
+            <li class="item-arrow item-arrow-left">
+                <div class="item-arrow-left-select">
+                    <img src="assets/images/arrow-left.png" alt="left"/>
+                </div>
+            </li>
+            <li class="item-arrow item-arrow-right">
+                <div class="item-arrow-right-select" >
+                    <img src="assets/images/arrow-right.png" alt="left"/>
+                </div>
+            </li>
+
+            <li class="keyboard-parent item-height-full"
+                ng-repeat="foro in partForos.data"
+                ng-init="$last?partForos.slider():null">
+                <div class="item-keyboard-v2 item-height-full-select"
+                     ng-style="{'background-image':'url('+foro.photo+')'}"
+                     ng-click="transit('playerjne',{idvideo:debate.id})">
+                    <!-- 'partidos_profile',{idpartido:'1'} -->
+                    <div class="name-topic">
+                        {{foro.name}}
+                    </div>
+                    <p class="mjs-foro">{{foro.text}}</p>
+                    <img src="assets/images/play-normal.png" class="btn-play-normal" alt="logo"/>
+                    <img src="assets/images/play-hover.png" class="btn-play-hover" alt="logo"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="zone-nav-general-js" class="">
+        <ul class="keyboard-row nav-general-app nav-map-partidos">
+            <li class="item-nc item-nc-logo nav-general-item">
+                <img src="assets/images/logo.png"
+                     class="item-nc-logo-popup"
+                     alt="logo"/>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==1}"
+                     ng-click="transit('home')">
+                    <img src="assets/images/candidatos-menu.png" class="img-hover"/>
+                    ¡Conoce a tu candidato!
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==4}"
+                     ng-click="transit('planes')">
+                    <img src="assets/images/planes-menu.png" class="img-hover"/>
+                    Planes
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==5}"
+                     ng-click="transit('mapCongresistas')">
+                    <img src="assets/images/congresistas-menu.png" class="img-hover"/>
+                    Congresistas
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==2}"
+                     ng-click="transit('debates')">
+                    <!--ng-click="transit('partidos')"-->
+                    <img src="assets/images/foros-menu.png" class="img-hover"/>
+                    Foros y Debates
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select"
+                     ng-class="{'active-tab-item':tab.current==3}"
+                     ng-click="transit('grid_debates',{'from':1})">
+                    <img src="assets/images/debates-menu.png" class="img-hover"/>
+                    Debates JNE
+                </div>
+            </li>
+
+            <li class="item-nc item-nc-logo nav-general-item">
+                <img src="assets/images/tv-vivo.png" class="item-nc-logo-tv" alt="logo"/>
+            </li>
+        </ul>
+    </div>
+</div>

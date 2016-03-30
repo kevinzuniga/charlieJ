@@ -1,0 +1,49 @@
+<div id="zone-favorites-js">
+    <div class="modal-header">
+        <!--<button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>-->
+        <h4 class="modal-title">ELIGE A TUS <br/> <span><span class="red-title">5 CANDIDATOS</span> FAVORITOS</span></h4>
+        <img src="assets/images/logo.png" class="logo-modal-favorite"/>
+        <p class="text-indicate">Los candidatos que elijas apareceran primero en todas las pantallas</p>
+    </div>
+    <div class="modal-body">
+        <div class="cont-list-candidates-favorites" id="list-modal-candidates-cont-id">
+            <ul class="list-modal-candidates  keyboard-row" id="list-modal-candidates-id"
+                ng-hide="partModal.finishSelection">
+                <li class="list-modal-item keyboard-parent"
+                    ng-repeat="candidate in partModal.candidates track by $index"
+                    ng-class="{'elementSelectDefaultInitModal':$first}"
+                    ng-init="$last?partModal.init():null">
+                    <div class="list-modal-item-select item-keyboard-v2"
+                         ng-click="partModal.selectCandidate(candidate)"
+                         ng-class="{'item-modal-selected':partModal.candidatesSelected.indexOf(candidate.id)!==-1,
+                                    'elementSelectDefaultInit':$index==0}">
+                        <img ng-src="{{candidate.presidentialcandidate_photo_small}}" class="candidate-photo"/>
+
+                        <div class="cont-modal-check">
+                            <img class="img-modal-check" src="assets/images/checkModal.png">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div ng-show="partModal.finishSelection" class="message-finish-selection">
+                Se ha guardo sus candidatos favoritos
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer keyboard-row">
+        <div class="keyboard-parent">
+            <button ng-hide="partModal.finishSelection"
+                    class="btn btn-default item-keyboard-v2 btn-modal-favorite btn-m-cancel"
+                    ng-click="$dismiss()">
+                Elegir después
+            </button>
+        </div>
+        <div class="keyboard-parent">
+            <button class="btn btn-primary item-keyboard-v2 btn-modal-favorite btn-m-continue"
+                    ng-click="partModal.saveSelectCandidate()">
+                <span ng-hide="partModal.finishSelection">Guardar</span>
+                <span ng-show="partModal.finishSelection">Listo</span>
+            </button>
+        </div>
+    </div>
+</div>

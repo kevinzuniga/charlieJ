@@ -1,0 +1,185 @@
+<div class="col-md-12 container-one-candidate" ng-controller="CandidatoCtrl">
+
+    <div id="zone-candidate-js" class="zone-candidate profile-element">
+        <div class="cont-photo keyboard-row block-left-prof"
+             ng-style="{'background-image':'url('+partCandidato.data.presidentialcandidate_photo+')'}">
+            <div class="keyboard-parent">
+                <div class="item-keyboard-v2 elementSelectDefaultInit" ng-click="btnBackViews()">
+                    <img src="assets/images/back.png"
+                         class="btn-bl-back btn-bl-back-normal"
+                         alt="logo"/>
+                    <img src="assets/images/back-hover.png"
+                         class="btn-bl-back btn-bl-back-hover"
+                         alt="logo"/>
+                </div>
+                <ul class="members-team-candidate">
+                    <li class="member-team-candidate">
+                        <div class="member-team-candidate-sub">
+                            <img ng-src="{{partCandidato.data.firstminister_photo}}"/>
+                            <div class="cont-name-team-candidate">
+                                <p>{{partCandidato.data.firstminister_firstname}}
+                                    {{partCandidato.data.firstminister_lastname}}</p>
+                                <p>PRIMER VICEPRESIDENTE</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="member-team-candidate">
+                        <div class="member-team-candidate-sub">
+                            <img ng-src="{{partCandidato.data.vicepresident_photo}}"/>
+                            <div class="cont-name-team-candidate">
+                                <p>{{partCandidato.data.vicepresident_firstname}}
+                                    {{partCandidato.data.vicepresident_lastname}}</p>
+                                <p>SEGUNDO VICEPRESIDENTE</p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="cont-info-candidate block-right-prof">
+            <div class="block-one-ic block-prof-head">
+                <div class="name-candidate">
+                    <p>{{partCandidato.data.presidentialcandidate_firstname}}</p>
+                    <p>{{partCandidato.data.presidentialcandidate_lastname}}</p>
+                </div>
+                <div class="cont-logo">
+                    <p>{{partCandidato.data.name}}</p>
+                    <img ng-src="{{partCandidato.data.logo}}" alt="logo"/>
+                </div>
+            </div>
+            <div class="block-three-ic block-prof-data block-prof-data-candidate ">
+                <ul >
+                    <li class="age-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/candid-edad.png" alt="Edad"/> Edad
+                        </div>
+                        <span class="bpd-info">{{partCandidato.data.presidentialcandidate_age}} años</span>
+                    </li>
+                    <li class="site-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/candid-lugar.png" alt="Edad"/> <p>Lugar de Nacimiento</p>
+                        </div>
+                        <span class="bpd-info bpd-info-short-text">{{partCandidato.data.presidentialcandidate_birthplace}}</span>
+                    </li>
+                    <li class="bm-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/candid-muebles.png" alt="Edad"/> <p>Bienes muebles</p>
+                        </div>
+                        <span class="bpd-info">{{partCandidato.data.presidentialcandidate_movable}}</span>
+                    </li>
+                    <li class="bi-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/candid-inmuebles.png" alt="Edad"/> <p>Bienes inmuebles</p>
+                        </div>
+                        <span class="bpd-info">{{partCandidato.data.presidentialcandidate_inmovable}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<div class="label-img-text">-->
+                            <!--<img src="assets/images/candid-laboral.png" alt="Edad"/> <p>Experiencia Laboral</p>-->
+                        <!--</div>-->
+                        <!--<span class="bpd-info">{{partCandidato.data.presidentialcandidate_work_experience}} años</span>-->
+                    <!--</li>-->
+                </ul>
+                <ul>
+                    <li class="i-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/candid-ingresos.png" alt="Edad"/> <p>Ingresos (S/.)</p>
+                        </div>
+                        <span class="bpd-info">{{partCandidato.data.presidentialcandidate_income}}</span>
+                    </li>
+                    <li class="cp-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/candid-cargos-part.png" alt="Edad"/> <p>Cargos Partidarios</p>
+                        </div>
+                        <span class="bpd-info" ng-show="partCandidato.data.presidentialcandidate_partypositions">SI</span>
+                        <span class="bpd-info" ng-hide="partCandidato.data.presidentialcandidate_partypositions">NO</span>
+                    </li>
+                    <li class="cep-candidate">
+                        <div class="label-img-text">
+                            <img src="assets/images/candid-cargos-pop.png" alt="Edad"/> <p>Cargos por elección popular</p>
+                        </div>
+                        <span class="bpd-info" ng-show="partCandidato.data.presidentialcandidate_pec">SI</span>
+                        <span class="bpd-info" ng-hide="partCandidato.data.presidentialcandidate_pec">NO</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!--<div class="block-four-ic keyboard-row">-->
+                <!--<ul class="list-videos-candidate" id="list-videos-candidate-js">-->
+                    <!--&lt;!&ndash;<li class="item-arrow item-arrow-right">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item-arrow-right-select" >&ndash;&gt;-->
+                            <!--&lt;!&ndash;<img src="assets/images/arrow-right.png" alt="left"/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<li class="item-arrow item-arrow-left">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item-arrow-left-select">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<img src="assets/images/arrow-left.png" alt="left"/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--<li class="keyboard-parent list-videos-candidate-one">-->
+                        <!--<div class="item-keyboard-v2 item-videos-candidate-one">-->
+                            <!--<img src="assets/images/play-normal.png" class="list-videos-btn list-videos-play-normal"-->
+                                 <!--alt="play"/>-->
+                            <!--<img src="assets/images/play-hover.png" class="list-videos-btn list-videos-play-hover"-->
+                                 <!--alt="play"/>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!--<li class="keyboard-parent list-videos-candidate-one">-->
+                        <!--<div class="item-keyboard-v2 item-videos-candidate-one">-->
+                            <!--<img src="assets/images/play-normal.png" class="list-videos-btn list-videos-play-normal"-->
+                                 <!--alt="play"/>-->
+                            <!--<img src="assets/images/play-hover.png" class="list-videos-btn list-videos-play-hover"-->
+                                 <!--alt="play"/>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <div id="zone-menu-candidate-js" class="zone-menu-candidate">
+        <ul class="keyboard-row nav-candidate nav-general-app nav-general-profile-app">
+            <li class="item-nc item-nc-logo nav-general-item nav-general-item-logo">
+                <img src="assets/images/logo.png"
+                     class="item-nc-logo-popup"
+                     alt="logo"/>
+
+                <div class="cont-name-logo">
+                    <div class="cont-name">
+                        <p>{{partCandidato.data.presidentialcandidate_firstname}}</p>
+                        <p> {{partCandidato.data.presidentialcandidate_lastname}}</p>
+                    </div>
+                    <img ng-src="{{partCandidato.data.logo}}" alt="logo"/>
+                </div>
+            </li>
+            <!--<li class="keyboard-parent item-nc nav-general-item">-->
+                <!--<div class="item-keyboard-v2 nav-general-item-select" ng-click="transit('partidos')">-->
+                    <!--Partido-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="keyboard-parent item-nc nav-general-item">-->
+                <!--<div class="item-keyboard-v2 nav-general-item-select"-->
+                     <!--ng-click="transit('grid_debates',{'from':1})">-->
+                    <!--<img src="assets/images/debates-menu.png" class="img-hover" alt=""/>-->
+                    <!--Debates JNE-->
+                <!--</div>-->
+            <!--</li>-->
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select" ng-click="transit('playerjne',{idvideo:partCandidato.data.id,url:'government-planes'})">
+                    <img src="assets/images/planes-menu.png" class="img-hover" alt=""/>
+                    Plan de Gobierno
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select" ng-click="transit('mapCongresistas')">
+                    <img src="assets/images/congresistas-menu.png" class="img-hover" alt=""/>
+                    Congresistas
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

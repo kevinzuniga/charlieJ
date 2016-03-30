@@ -1,0 +1,126 @@
+<div class="col-md-12 container-partido-profile" ng-controller="PartidosProfileCtrl">
+    <div id="zone-partido-profile-js" class="zone-partido-profile profile-element">
+
+        <div class="cont-photo keyboard-row block-left-prof">
+            <div class="keyboard-parent">
+                <div class="item-keyboard-v2" ng-click="btnBackViews()">
+                    <img src="assets/images/back.png"
+                         class="btn-bl-back btn-bl-back-normal"
+                         alt="logo"/>
+                    <img src="assets/images/back-hover.png"
+                         class="btn-bl-back btn-bl-back-hover"
+                         alt="logo"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="cont-info-partido-profile block-right-prof">
+            <div class="block-one-ic block-prof-head">
+                <div class="cont-logo partido-profile">
+                    <img src="assets/images/partido.png" alt="logo"/>
+
+                    <p>
+                        Partido <br/>
+                        <span>Del Ejemplo</span>
+                    </p>
+                </div>
+            </div>
+            <div class="block-prof-data">
+                <ul>
+                    <li>
+                        <div class="label-img-text">
+                            <img src="assets/images/icon-0.png" alt="Edad"/> MILITANTES
+                        </div>
+                        <span class="bpd-info">134</span>
+                    </li>
+                    <li>
+                        <div class="label-img-text">
+                            <img src="assets/images/icon-1.png" alt="Edad"/> FUNDACIÓN
+                        </div>
+                        <span class="bpd-info">12/03/1920</span>
+                    </li>
+                    <li>
+                        <div class="label-img-text">
+                            <img src="assets/images/icon-6.png" alt="Edad"/> LOCALES
+                        </div>
+                        <span class="bpd-info">20</span>
+                    </li>
+                    <li>
+                        <div class="label-img-text">
+                            <img src="assets/images/icon-4.png" alt="Edad"/> IDEOLOGÍA
+                        </div>
+                        <span class="bpd-info">Socialismo</span>
+                    </li>
+                    <li class="cont-label-parpro">
+                        <div class="label-parpro">
+                            <div class="label-img-text">
+                                <img src="assets/images/icon-5.png" alt="Edad"/> PRESIDENTE DEL PARTIDO
+                            </div>
+                            <span class="bpd-info">Lorem Ipsun</span>
+                        </div>
+                        <img src="assets/images/pic-1.png" class="photo-presidente-partido" alt=""/>
+                    </li>
+                    <li class="cont-label-parpro">
+                        <div class="label-parpro">
+                            <div class="label-img-text">
+                                <img src="assets/images/icon-5.png" alt="Edad"/> SECRETARIO GENERAL
+                            </div>
+                            <span class="bpd-info">Amet Consequat</span>
+                        </div>
+                        <img src="assets/images/pic-1.png" class="photo-presidente-partido" alt=""/>
+                    </li>
+                </ul>
+            </div>
+            <div class="block-two-ic block-prof-description">
+                Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis
+                justo. Nullam cursus lacinia erat. Fusce ac felis sit amet ligula pharetra condimentum. Aenean tellus
+                metus, bibendum sed, posuere ac, mattis non, nunc. Class aptent taciti sociosqu ad litora torquent per
+                conubia nostra, per inceptos hymenaeos.
+                Nulla sit amet est. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Vestibulum dapibus
+                nunc ac augue. Fusce fermentum. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla
+                eleifend augue, ac auctor orci leo non est.
+                Aliquam lobortis.
+            </div>
+        </div>
+    </div>
+
+    <div id="zone-menu-candidate-js" class="zone-menu-candidate">
+        <ul class="keyboard-row nav-general-app nav-general-profile-app">
+            <li class="item-nc nav-general-item nav-general-item-logo">
+                <img src="assets/images/logo.png"
+                     class="item-nc-logo-popup"
+                     alt="logo"/>
+
+                <div class="cont-name-logo">
+                    <div class="cont-name">
+                        <p>Partido</p>
+
+                        <p>DEL EJEMPLO</p>
+                    </div>
+                    <!--<img src="assets/images/partido.png" alt="logo"/>-->
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select" ng-click="transit('candidato',{idCandidato:1})">
+                    Candidato
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select" ng-click="transit('debates')">
+                    Debates
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select" ng-click="transit('planes')">
+                    Plan de gobierno
+                </div>
+            </li>
+            <li class="keyboard-parent item-nc nav-general-item">
+                <div class="item-keyboard-v2 nav-general-item-select" ng-click="transit('mapCongresistas')">
+                    Congresistas
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
